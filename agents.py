@@ -34,6 +34,9 @@ class ValueIterationAgent:
                 reward + self.discount * self.get_value(next_state)
             )
         return total
+    
+    def get_q_value_for_state(self, state):
+        return lambda action: self.get_q_value(state, action)
 
     def get_best_policy(self, state):
         """Return policy π*(s) correspond to state.
@@ -74,9 +77,6 @@ class PolicyIterationAgent(ValueIterationAgent):
             state: next(iter(game.get_actions(state)), None)
             for state in game.states
         }
-
-    def get_q_value_for_state(self, state):
-        return lambda action: self.get_q_value(state, action)
 
     def iterate(self):
         """Run single policy iteration.
