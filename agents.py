@@ -34,7 +34,7 @@ class ValueIterationAgent:
                 reward + self.discount * self.get_value(next_state)
             )
         return total
-    
+
     def get_q_value_for_state(self, state):
         return lambda action: self.get_q_value(state, action)
 
@@ -153,7 +153,7 @@ def question_4d():
 
 def question_4e():
     discount = 0.9
-    noise = 0.2
+    noise = 0.0
     living_reward = 1.0
     return discount, noise, living_reward
     # If not possible, return 'NOT POSSIBLE'
